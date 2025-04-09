@@ -1,0 +1,25 @@
+def hacer(frase):
+    vocales = {'a': 0, 'e': 0, 'i': 0, 'o': 0, 'u': 0}
+    # Frase a minúsculas para que sea insensible a mayúsculas
+    frase_nueva = frase.lower()
+    # Variable para contar el total de vocales
+    cantidad_total = 0
+
+    # Recorremos cada carácter en la frase
+    for char in frase_nueva:
+        if char in vocales:
+            vocales[char] += 1
+            cantidad_total += 1
+
+    # Si no hay vocales, los promedios serían 0 para cada vocal
+    if cantidad_total == 0:
+        return {vocal: 0 for vocal in vocales}
+
+    # Calculamos los promedios
+    promedios = {vocal: round(vocales[vocal] / cantidad_total, 3) for vocal in vocales}
+
+    return promedios
+
+
+resultado = hacer('Esta es una prueba')
+print(resultado)
